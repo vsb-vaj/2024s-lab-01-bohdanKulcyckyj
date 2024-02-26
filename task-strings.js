@@ -3,14 +3,12 @@
 // 1 =================================
 // Write function to parameterize a string.
 // Example:
-// console.log(parametrize("Javascript is the best"));
 // "javascript-is-the-best"
 
 // Your code:
-export const parametrize = (input) => {
-
+const parametrize = (input) => {
+  return input.toLowerCase().split(' ').join('-');
 };
-
 // 2 =================================
 // Write function that takes object and return sentence
 // Example:
@@ -18,8 +16,9 @@ export const parametrize = (input) => {
 // ➞ Hello Obi-wan from Starwars universe! It is nice to meet you! You look awesome for your 40, young Jedi!
 
 // Your code:
-export const giveSentenceForPerson = (obj) => {
-
+const giveSentenceForPerson = (obj) => {
+  const { name, position, age, location } = obj;
+  return `Hello ${name} from ${location}! It is nice to meet you! You look awesome for your ${age}, young ${position}!`;
 };
 
 // 3 =================================
@@ -28,6 +27,7 @@ export const giveSentenceForPerson = (obj) => {
 // replace("Hello Javascript") ➞ "H*ll* J*v*scr*pt"
 
 // Your code:
-export const replace = (input) => {
-
+const replace = (input) => {
+  const elementsToReplace = ['a', 'e', 'i', 'o'];
+  return input.replace(new RegExp(elementsToReplace.join('|'), 'g'), '*');
 };

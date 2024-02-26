@@ -7,9 +7,12 @@
 // * * * * *
 
 // Your code:
-export const drawTriangle = (length = 5) => {
-  
-    // ... write code ...
+const drawTriangle = (length = 5) => {
+  let tmp;
+  for (let i = 1; i <= length; i++) {
+    tmp = '*';
+    console.log(tmp.padStart(i, '*'));
+  }
 };
 
 // 2#  ========== BONUS =======================
@@ -27,19 +30,23 @@ export const drawTriangle = (length = 5) => {
 // J A V A S C R I P T
 
 // Your code:
-export const drawJavascriptWord = (word = "javascript") => {
-  // ... write code ...
+const drawJavascriptWord = (word = 'javascript') => {
+  const upperCasedWord = word.toUpperCase()
+  let tmp
+  for (let i = upperCasedWord.length; i >= 0; i--) {
+    tmp = upperCasedWord.slice(i, upperCasedWord.length);
+    console.log(tmp.padStart(upperCasedWord.length, '*'));
+  }
 };
-
-
+drawJavascriptWord()
 // 3#  ========== BONUS =======================
 // Create function that takes array of vehicles with measured top speeds. Return array of vehicle with top speed.
 // Example:
-// const vehicles = [
-//   { name: "Executor Star Dreadnought", measuredSpeeds: [555, 545, 577, 600] },
-//   { name: "T-47 Airspeeder", measuredSpeeds: [300, 311, 299, 350] },
-//   { name: "AT-AT", measuredSpeeds: [20, 21, 20, 19] },
-// ];
+const vehicles = [
+   { name: "Executor Star Dreadnought", measuredSpeeds: [555, 545, 577, 600] },
+   { name: "T-47 Airspeeder", measuredSpeeds: [300, 311, 299, 350] },
+   { name: "AT-AT", measuredSpeeds: [20, 21, 20, 19] },
+ ];
 // getVehiclesAndTopSpeed(vehicles) ➞ will return ➞ [
 //     { name: "Executor Star Dreadnought", topSpeed: 600},
 //     { name: "T-47 Airspeeder", topSpeed: 350 },
@@ -47,6 +54,9 @@ export const drawJavascriptWord = (word = "javascript") => {
 //   ];
 
 // Your code:
-export const getVehiclesAndTopSpeed = (vehicles) => {
-  
+const getVehiclesAndTopSpeed = (vehicles) => {
+  return vehicles.map((_vehicle) => ({
+    name: _vehicle.name,
+    topSpeed: Math.max(..._vehicle.measuredSpeeds),
+  }));
 };

@@ -9,19 +9,24 @@
 // volumeOfBox({ width: 2, length: 3, height: 5 }) ➞ 30
 
 // Your code:
-export const volumeOfBox = (obj) => {
-
+const volumeOfBox = (obj) => {
+  return Object.values(obj).reduce((_acc, _item) => _acc * _item);
 };
-  
+
 // 2 ----
 // Create a function that takes strings - firstname, lastname, age, and return object with firstname, lastname, age, yearOfBirth
 // Examples
 // personObject("Obi-wan", "Kenobi", "40") ➞ { firstname: "Obi-wan", lastname: "Kenobi", age: 40, yearOfBirth: 1981 }
 
 // Your code:
-export const personObject = (firstname, lastname, age) => {
-
-
+const personObject = (firstname, lastname, age) => {
+  const currYear = new Date().getFullYear();
+  return {
+    firstname,
+    lastname,
+    age,
+    yearOfBirth: currYear - age,
+  };
 };
 
 // 3 ----
@@ -34,18 +39,17 @@ export const personObject = (firstname, lastname, age) => {
 // ]) ➞ 65700
 
 //Your code:
-export const getBudgets = (persons) => {
-
+const getBudgets = (persons) => {
+  return (persons.reduce((_acc, { budget }) => budget + _acc, 0));
 };
 
 // 4 ----
 // Create function that takes array of cars and sort them by price
 // Example
-// const vehicles = [{name: "Executor Star Dreadnought", price: 999}, {name: "T-47 Airspeeder", price: 5}, {name: "AT-AT", price : 20}]
+const vehicles = [{name: "Executor Star Dreadnought", price: 999}, {name: "T-47 Airspeeder", price: 5}, {name: "AT-AT", price : 20}]
 // sortVehiclesByPrice(vehicles) ➞ [{name: "T-47 Airspeeder", price :5}, {name: "AT-AT", price :20}, {name: "Executor Star Dreadnought", price: 999}]
 
 // Your code:
-export const sortVehiclesByPrice = (vehicles) => {
-  
-
+const sortVehiclesByPrice = (vehicles) => {
+  return vehicles.sort((obj1, obj2) => obj1.price - obj2.price);
 };
